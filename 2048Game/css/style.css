@@ -1,0 +1,68 @@
+body{
+    margin: 20px auto;
+}
+/*  game header  */
+.game-header{
+    margin: 0 auto;
+    width: 500px;
+    display: flex;
+}
+.game-header h1{
+    font-size: 5em;
+    margin: 0;
+}
+.game-header .title{
+    width: 50%;
+    height:100px;
+    float: left;
+}
+.game-header .scores{
+    width: 50%;
+    float: right;
+    height:100px;
+}
+.game-header .scores .score{
+    background-color: silver;
+    width: 45%;
+    height:75px;
+    float: left;
+    font-size: 1.5em;
+    text-align: center;
+    color: white;
+    border-radius: 5px;
+}
+.game-header .scores .best{
+    background-color: silver;
+    width: 45%;
+    height:75px;
+    float: right;
+    font-size: 1.5em;
+    text-align: center;
+    color: white;
+    border-radius: 5px;
+}
+
+/*  game section  */
+.game-section{
+    margin: 0 auto;
+    width: 500px;
+}
+.tiles-container{
+    background-color: #656565;
+    padding: 2% 0 0 2%;
+    border-radius: 5px ;
+    width: 500px;
+    height: 500px;
+}
+.tilesRow{
+    margin-bottom: 2%;
+    height: 23%;
+}
+.tiles{
+    height: 100%;
+    width: 23%;
+    background-color: #aeaeae;
+    margin-right: 2%;
+    border-radius: 5px ;
+    float: left;
+}
