@@ -1,27 +1,37 @@
+var busy = false;
 
 $(document).keydown(function(e) {
-    switch(e.which) {
-        case 37: // left
-        case 65: // a
-            moveLeft();
-            break;
+    if(busy == false) {
 
-        case 38: // up
-        case 87: // w
-            moveUp();
-            break;
+        busy = true;  // delay tiles movement until the last operation is over.
+        setTimeout(function () {
+            busy = false;
+        }, 200);
 
-        case 39: // right
-        case 68: // d
-            moveRight();
-            break;
+        switch (e.which) {
+            case 37: // left
+            case 65: // a
+                left();
+                break;
 
-        case 40: // down
-        case 83: // s
-            moveDown();
-            break;
+            case 38: // up
+            case 87: // w
+                up();
+                break;
 
-        default: return; // exit this handler for other keys
+            case 39: // right
+            case 68: // d
+                right();
+                break;
+
+            case 40: // down
+            case 83: // s
+                down();
+                break;
+
+            default:
+                return; // exit this handler for other keys
+        }
     }
-    e.preventDefault(); // prevent the default action (scroll / move caret)
+    e.preventDefault(); // prevent the default acion (scroll / move caret)t
 });
