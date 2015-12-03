@@ -1,4 +1,4 @@
-
+var moveFlag = false;
 function up(){
     var stack = [];
     for (var col = 1; col <= 4; col++ ){
@@ -41,7 +41,9 @@ function up(){
             }
         }
     }
-    createRandomTile();
+    if(moveFlag == true)
+        createRandomTile();
+    moveFlag = false;
 }
 
 function down(){
@@ -84,7 +86,9 @@ function down(){
             }
         }
     }
-    createRandomTile();
+    if(moveFlag == true)
+        createRandomTile();
+    moveFlag = false;;
 }
 
 
@@ -128,7 +132,9 @@ function left(){
             }
         }
     }
-    createRandomTile();
+    if(moveFlag == true)
+        createRandomTile();
+    moveFlag = false;
 }
 
 function right(){
@@ -171,7 +177,9 @@ function right(){
             }
         }
     }
-    createRandomTile();
+    if(moveFlag == true)
+        createRandomTile();
+    moveFlag = false;
 }
 
 adjustTileSize();
@@ -196,30 +204,31 @@ function addTile(row, col, amount){
     $(".overlay-tiles").append('<div class="tile-container tile-'+ amount +' position-'+ row +'-'+ col +'"><div class="tile">'+ amount +'</div></div>');
 }
 
-createRandomTile();
-createRandomTile();
 function createRandomTile(){
 
-    var tiles = [[1,1],[1,2],[1,3],[1,4],[2,1],[2,2],[2,3],[2,4],[3,1],[3,2],[3,3],[3,4],[4,1],[4,2],[4,3],[4,4]];
-    id = Math.floor(Math.random() * (16)) + 1;
-    tile = tiles[id-1];
-    if (getTile(tile[0],tile[1]) == 0){
-        addTile(tile[0],tile[1],2);
-        return;
-    } else {
-        createRandomTile();
-    }
+    setTimeout(function () {         // delay tiles movement until the last operation is over.
+
+        var availableTiles = getAvailableTiles();
+        var randomTileId = Math.floor(Math.random() * (availableTiles.length)) + 1;
+        addTile(availableTiles[randomTileId-1][0],availableTiles[randomTileId-1][1], Math.random() < 0.8 ? 2 : 4);
+
+    }, 200);
+
 
 }
 
 
 function moveTile(rowF, colF, rowT, colT, vertical) {
     if (vertical == true){
-        if (rowF != rowT)
+        if (rowF != rowT) {
             $(".position-" + rowF + "-" + colF + "").switchClass('position-' + rowF + '-' + colF + '', 'position-' + rowT + '-' + colT + '', 100);
-    }   else   {
-        if (colF != colT)
+            moveFlag = true;
+        }
+    }   else {
+        if (colF != colT){
             $(".position-" + rowF + "-" + colF + "").switchClass('position-' + rowF + '-' + colF + '', 'position-' + rowT + '-' + colT + '', 100);
+            moveFlag = true;
+        }
     }
 }
 
@@ -228,9 +237,21 @@ function margeTiles(row1, col1, row2, col2, row, col, value){
 
     $(".position-"+ row1 +"-"+ col1 +"").remove();
     $(".position-"+ row2 +"-"+ col2 +"").switchClass('position-'+row2+'-'+col2+'', 'position-'+row+'-'+col+'', 100, 'swing', function(){
-        $(".position-"+ row +"-"+ col +"").switchClass('tile-'+ value/2 +'','tile-'+value+'',10,"easeInOutQuad" );
+        $(".position-"+ row +"-"+ col +"").switchClass('tile-'+ value/2 +'','tile-'+value+'', 10 );
         $(".position-"+ row +"-"+ col +" .tile").html(value);
     });
+    moveFlag = true;
+
+    var score = parseInt($('#score').html()) + value;
+    $('#score').html(score);
+    if( score > parseInt($('#best').html()))
+        $('#best').html(score);
+
+    if(value == 2048){
+        $('#message-content').html('You Won!');
+        $('.game-messages').show();
+        $('.keep-going').show();
+    }
 }
 
 

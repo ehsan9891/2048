@@ -33,5 +33,6 @@ $(document).keydown(function(e) {
                 return; // exit this handler for other keys
         }
     }
-    e.preventDefault(); // prevent the default acion (scroll / move caret)t
+    e.preventDefault(); // prevent the default action (scroll / move caret)
+    isGameOver();
 });

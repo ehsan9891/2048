@@ -1,5 +1,6 @@
 body{
     margin: 20px auto;
+    font-family: 'clear Sans', arial, sans-serif;
 }
 /*  game header  */
 .game-header{
@@ -26,7 +27,7 @@ body{
     width: 45%;
     height:75px;
     float: left;
-    font-size: 1.5em;
+    font-size: 1.2em;
     text-align: center;
     color: white;
     border-radius: 5px;
@@ -36,11 +37,12 @@ body{
     width: 45%;
     height:75px;
     float: right;
-    font-size: 1.5em;
+    font-size: 1.2em;
     text-align: center;
     color: white;
     border-radius: 5px;
 }
+
 
 /*  game section  */
 .game-section{
@@ -69,7 +71,7 @@ body{
 
 .overlay-tiles{
     position: absolute;
-    z-index: 999;
+    z-index: 2;
 }
 .tile-container {
     position: absolute;
@@ -79,11 +81,13 @@ body{
 .tile {
     width: 115px;
     height: 115px;
+    line-height: 115px;
+    font-size: 60px;
     border-radius: 5px;
     text-align: center;
     font-weight: bold;
-    z-index: 999;
-    font-size: 60px;
+    z-index: 3;
+
 }
 
 .tile-2{
@@ -114,19 +118,95 @@ body{
     background-color: #edcf72;
     color: #f9f6f2;
 }
+.tile-128 .tile{
+    font-size: 50px;
+}
 .tile-256{
     background-color: #edcc61;
     color: #f9f6f2;
+    font-size: 50px;
+}
+.tile-256 .tile{
+    font-size: 50px;
 }
 .tile-512{
     background-color: #edc850;
     color: #f9f6f2;
+    font-size: 50px;
+}
+.tile-512 .tile{
+    font-size: 50px;
 }
 .tile-1024{
     background-color: #edc53f;
     color: #f9f6f2;
+    font-size: 40px;
+}
+.tile-1024 .tile{
+    font-size: 40px;
 }
 .tile-2048{
     background-color: #edc22e;
     color: #f9f6f2;
+    font-size: 40px;
+}
+.tile-2048 .tile{
+    font-size: 40px;
+}
+.tile-4096{
+    background-color: #5eda92;
+    color: #f9f6f2;
+    font-size: 40px;
+}
+.tile-4096 .tile{
+    font-size: 40px;
+}
+.tile-8192{
+    background-color: #25bb64;
+    color: #f9f6f2;
+    font-size: 40px;
+}
+.tile-16tile-8192384 .tile{
+    font-size: 40px;
+}
+.tile-16384{
+    background-color: #25bb64;
+    color: #f9f6f2;
+    font-size: 30px;
+}
+.tile-16384 .tile{
+    font-size: 30px;
+}
+
+.game-messages{
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.5);
+    z-index: 5;
+    text-align: center;
+}
+.game-messages h5 {
+    font-size: 1.5em;
+    font-weight: bold;
+    height: 60px;
+    line-height: 60px;
+    margin-top: 250px;
+}
+.button{
+    margin: 0 auto;
+    display: inline-block;
+    background-color: #ede0c8;
+    color: #2f2f2f;
+    border-radius: 5px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    z-index: 6;
+}
+.keep-going{
+    display: none;
 }

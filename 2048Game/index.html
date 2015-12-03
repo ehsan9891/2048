@@ -24,11 +24,11 @@ and open the template in the editor.
             <div class="scores">
                 <div class="score">
                     SCORE
-                    <p>0</p>
+                    <p id="score">0</p>
                 </div>
                 <div class="best">
                     BEST
-                    <p>0</p>
+                    <p id="best">0</p>
                 </div>
             </div>
             <div class="newGame">
@@ -36,12 +36,15 @@ and open the template in the editor.
             </div>
         </div>
         <div class="game-section" >
-            <div class="game-messages">
-                <h5></h5>
-            </div>
             <div class="tiles-container">
+                <div class="game-messages">
+                    <h5 id="message-content"></h5>
+                    <div class="message-buttons">
+                        <button onclick="keepGoing()" class="button keep-going">Keep going</button>
+                        <button onclick="newGame()" class="button try-again">Try again</button>
+                    </div>
+                </div>
                 <div class="overlay-tiles">
-
 
                 </div>
                 <div class="tilesRow">
@@ -81,3 +84,5 @@ and open the template in the editor.
 <script src="assets/js/jquery-ui.min.js"></script>
 <script src="js/keyboard.js"></script>
 <script src="js/main.js"></script>
+<script src="js/status.js"></script>
+<script src="js/init.js"></script>
