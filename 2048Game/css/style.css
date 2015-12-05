@@ -48,6 +48,7 @@ body{
 .game-section{
     margin: 0 auto;
     width: 500px;
+    cursor: hand;
 }
 .tiles-container{
     background-color: #656565;
